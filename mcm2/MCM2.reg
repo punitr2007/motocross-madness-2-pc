@@ -1,0 +1,23 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft Games\Motocross Madness 2]
+"CDPath"="D:\\Codes\\Win_codes\\Motocross-Madness-2_Win_EN_Preinstalled-game-Ready-to-play-on-IPX-Web-Lobby\\mcm2\\"
+"PID"="52513-442-4255595-96934"
+"HardDriveRootPath"="D:\\Codes\\Win_codes\\Motocross-Madness-2_Win_EN_Preinstalled-game-Ready-to-play-on-IPX-Web-Lobby\\mcm2"
+"AllowFreezeCamera"=dword:00000001
+"InstallType"="Full"
+"Launched"="1"
+"VersionType"="RetailVersion"
+"InstalledGroup"="3"
+"LangID"=dword:00000009
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Microsoft Games\Motocross Madness 2]
+"CDPath"="D:\\Codes\\Win_codes\\Motocross-Madness-2_Win_EN_Preinstalled-game-Ready-to-play-on-IPX-Web-Lobby\\mcm2\\"
+"PID"="52513-442-4255595-96934"
+"HardDriveRootPath"="D:\\Codes\\Win_codes\\Motocross-Madness-2_Win_EN_Preinstalled-game-Ready-to-play-on-IPX-Web-Lobby\\mcm2"
+"AllowFreezeCamera"=dword:00000001
+"InstallType"="Full"
+"Launched"="1"
+"VersionType"="RetailVersion"
+"InstalledGroup"="3"
+"LangID"=dword:00000009

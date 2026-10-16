@@ -1,0 +1,25 @@
+# Log files
+*.log
+mcm2/errorlog.txt
+mcm2/ipxwrapper.log
+mcm2_runtime.log
+
+# Local launcher state
+mcm2/game_path.txt
+mcm2/host_room.txt
+mcm2/chat_nick.txt
+
+# Backup files
+*.bak
+*.bak_nopatch
+mcm2/UI/BACKUP_IV50/
+mcm2/UI/BACKUP_ORIGINAL/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS artifacts
+Thumbs.db
+Desktop.ini
+.DS_Store
