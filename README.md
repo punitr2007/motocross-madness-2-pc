@@ -153,14 +153,48 @@ python tools/patch_mcm2.py path/to/MCM2.EXE
 
 ---
 
-## 🎮 Video Configuration (`dgVoodoo.conf`)
+## 🎬 High-Quality Video Extraction & AI Upscaling (RIFE / Real Video Enhancer)
 
-The bundled `dgVoodoo.conf` includes the following verified settings:
-- **`VRAM = 256`**: Constrains video memory to 256 MB to prevent signed 32-bit integer overflow in `CreateModeSurfaces`.
-- **`SystemHookFlags = gdi`**: Enables GDI surface capture so that Windows Multimedia video playback is seamlessly presented on modern displays.
-- **`ScalingMode = stretched_ar`**: Preserves original 4:3 aspect ratio on 16:9 / 21:9 monitors without distortion.
+Motocross Madness 2 shipped with three full-motion video sequences encoded in the now-deprecated Intel Indeo Video 5 (IV50) codec:
+- **`INTRO.AVI`**: Main game intro cinematic (originally 320x240 @ 15 FPS).
+- **`EVENTS.AVI`**: Interactive menu stunt/track preview loop (144x104 @ 15 FPS).
+- **`CREDITS.AVI`**: Closing credits roll with soundtrack (640x480 @ 2 FPS).
+
+### 1. Extracted High-Definition Video Assets
+
+Pristine digital masters and high-definition renders have been extracted to `mcm2/UI/EXTRACTED_HQ_VIDEOS/`:
+- `MCM2_Intro_Source_Master.mp4`: Lossless CRF 14 H.264 master extracted directly from the original retail video.
+- `MCM2_Intro_Upscaled_1080p.mp4`: Remastered 1440x1080 (4:3) render with Lanczos edge refinement and unsharp masking.
+- `MCM2_Events_Source_Master.mp4`: Event loop master.
+- `MCM2_Events_Upscaled_720p.mp4`: 720p remaster of the event preview loop.
+- `MCM2_Credits_Source_Master.mp4`: Lossless credits sequence with full 320kbps stereo soundtrack.
+- `MCM2_Credits_Upscaled_1080p.mp4`: 1080p remaster of the credits sequence.
+
+### 2. Using RIFE / Real Video Enhancer / Topaz
+
+You can feed the files from `mcm2/UI/EXTRACTED_HQ_VIDEOS/` directly into **RIFE** (Real-Time Intermediate Flow Estimation) and **Real Video Enhancer** / **Real-ESRGAN**:
+- **Frame Interpolation (RIFE)**: Set to `4x` to convert the original 15 FPS footage into ultra-smooth **60 FPS**.
+- **Spatial Upscaling**: Upscale to `640x480` (native DirectDraw UI resolution) or `1440x1080` (nostalgic standalone viewing).
+
+### 3. Replacing In-Game Videos with Upscaled Files
+
+Can you replace the in-game videos with your AI-enhanced renders? **Yes!** The MCM2 engine (`MediaControl`) supports dynamic resolution surfaces via DirectShow, provided the video meets 3 technical criteria:
+1. **Container**: Must be `.AVI`.
+2. **Codec**: DirectShow requires a 32-bit compatible codec (`msvideo1` Microsoft Video 1, `cinepak`, or `rawvideo` uncompressed BGR24).
+3. **Audio**: Must be Microsoft ADPCM (`adpcm_ms`) or PCM 16-bit 44.1kHz stereo.
+
+To automatically convert and install any AI-upscaled video into the game:
+
+```bash
+# Replace Intro video with your RIFE-upscaled MP4:
+python tools/convert_videos.py --replace INTRO.AVI --with "path/to/my_rife_upscaled.mp4" --scale 640:480
+
+# To extract or re-generate all master MP4 files:
+python tools/convert_videos.py --extract-hq
+```
 
 ---
+
 
 ## 📜 Credits & Acknowledgments
 

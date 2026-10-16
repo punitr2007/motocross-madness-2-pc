@@ -14,6 +14,7 @@ mcm2/chat_nick.txt
 *.bak_nopatch
 mcm2/UI/BACKUP_IV50/
 mcm2/UI/BACKUP_ORIGINAL/
+mcm2/UI/EXTRACTED_HQ_VIDEOS/
 
 # Python cache
 __pycache__/
