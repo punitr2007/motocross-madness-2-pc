@@ -25,8 +25,8 @@ import sys
 TARGET_VIDEOS = {
     "INTRO.AVI": {
         "has_audio": True,
-        "default_w": 640,
-        "default_h": 480,
+        "default_w": 320,
+        "default_h": 240,
         "desc": "Main Game Intro FMV (originally 320x240 @ 15fps, scales up to 640x480+ in 4:3)"
     },
     "EVENTS.AVI": {
@@ -37,8 +37,8 @@ TARGET_VIDEOS = {
     },
     "CREDITS.AVI": {
         "has_audio": True,
-        "default_w": 640,
-        "default_h": 480,
+        "default_w": 320,
+        "default_h": 240,
         "desc": "Ending Credits Roll (640x480 @ 2fps with soundtrack)"
     }
 }
